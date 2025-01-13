@@ -2,7 +2,7 @@ body{
     margin: 0;
     display: flex;
     justify-content: center;
-    background-color: skyblue;
+    background-color: #C5BAFF;
 }
 
 .form{
@@ -10,7 +10,7 @@ body{
     top: 30%;
     box-shadow: 0 4px 8px rgba(0,0,0,.3);
     width: 400px;
-    background-color:yellow;
+    background-color: #A1EEBD;
     border-radius: 10px;
 }
 

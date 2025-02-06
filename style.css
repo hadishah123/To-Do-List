@@ -1,280 +1,275 @@
 /* Default Light Mode Styles */
 body {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    background-color: #c5baff;
-    transition: background-color 0.3s, color 0.3s;
-    flex-direction: column;
-    align-items: center;
-  }
-  
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #c5baff;
+  transition: background-color 0.3s, color 0.3s;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  position: absolute;
+  top: 30%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 600px;
+  background-color: #a1eebd;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+  padding: 20px;
+}
+
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 10px 10px 0 0;
+  border: none;
+  font-size: 20px;
+}
+
+.input::placeholder {
+  color: lightgray;
+}
+
+.priority-select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 0 0 10px 10px;
+  background-color: #ffffff;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.list li {
+  list-style-type: none;
+  padding: 20px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  border-top: dotted;
+  border-color: darkgray;
+  position: relative;
+}
+
+.list li .fa-trash {
+  color: red;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 19px;
+}
+
+.list li .fa-check-square {
+  color: green;
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  padding: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 21px;
+}
+
+.list li.low {
+  background-color: #9ae6ad;
+}
+
+.list li.medium {
+  background-color: #ffe082;
+}
+
+.list li.high {
+  background-color: #ff7043;
+}
+
+.list li.checked {
+  color: darkgray;
+  text-decoration: line-through;
+}
+
+.list li.checked .fa-check-square {
+  color: darkgray;
+}
+
+/* Dark Mode Styles */
+[data-theme="dark"] {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+[data-theme="dark"] .form {
+  background-color: #333333;
+}
+
+[data-theme="dark"] .input {
+  background-color: #444444;
+  color: #f0f0f0;
+}
+
+[data-theme="dark"] .priority-select {
+  background-color: #444444;
+  color: #f0f0f0;
+}
+
+[data-theme="dark"] .list li {
+  background-color: #444444;
+  border-color: #666666;
+}
+
+[data-theme="dark"] .list li.low {
+  background-color: #6a9e6f;
+}
+
+[data-theme="dark"] .list li.medium {
+  background-color: #b88c3b;
+}
+
+[data-theme="dark"] .list li.high {
+  background-color: #d85c4f;
+}
+
+[data-theme="dark"] .list li.checked {
+  color: #888888;
+}
+
+[data-theme="dark"] .list li .fa-trash {
+  color: #ff7777;
+}
+
+[data-theme="dark"] .list li .fa-check-square {
+  color: #66ff66;
+}
+
+/* Blue Mode Styles */
+[data-theme="blue"] {
+  background-color: #e0f7fa;
+  color: white;
+}
+
+[data-theme="blue"] .form {
+  background-color: #80deea;
+}
+
+[data-theme="blue"] .input {
+  color: #d3d3d3;
+}
+
+[data-theme="blue"] .priority-select {
+  background-color: #80deea;
+  color: rgb(71, 68, 68);
+}
+
+[data-theme="blue"] .list li {
+  background-color: #80deea;
+  border-color: #00796b;
+}
+
+[data-theme="blue"] .list li.low {
+  background-color: #26c6da;
+}
+
+[data-theme="blue"] .list li.medium {
+  background-color: #159aab;
+}
+
+[data-theme="blue"] .list li.high {
+  background-color: #077988;
+}
+
+/* Purple Mode Styles */
+[data-theme="purple"] {
+  background-color: #f3e5f5;
+  color: white;
+}
+
+[data-theme="purple"] .form {
+  background-color: #ba68c8;
+}
+
+[data-theme="purple"] .input,
+[data-theme="purple"] .priority-select {
+  background-color: #ab47bc;
+  color: white;
+}
+
+[data-theme="purple"] .list li {
+  background-color: #ba68c8;
+  border-color: #6a1b9a;
+}
+
+[data-theme="purple"] .list li.low {
+  background-color: #9c27b0;
+}
+
+[data-theme="purple"] .list li.medium {
+  background-color: #8e24aa;
+}
+
+[data-theme="purple"] .list li.high {
+  background-color: #7b1fa2;
+}
+
+/* Toggle Button at Bottom Right */
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff4081;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+  background-color: #f50057;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
   .form {
-    position: absolute;
-    top: 30%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 600px;
-    background-color: #a1eebd;
-    border-radius: 10px;
-    transition: background-color 0.3s;
-    padding: 20px;
+    width: 90%;
+    top: 10%;
   }
-  
+
   .input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 20px;
-    border-radius: 10px 10px 0 0;
-    border: none;
-    font-size: 20px;
-  }
-  
-  .input::placeholder {
-    color: lightgray;
-  }
-  
-  .priority-select {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 0 0 10px 10px;
-    background-color: #ffffff;
-  }
-  
-  .list {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-  }
-  
-  .list li {
-    list-style-type: none;
-    padding: 20px;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    border-top: dotted;
-    border-color: darkgray;
-    position: relative;
-  }
-  
-  .list li .fa-trash {
-    color: red;
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    font-size: 19px;
-  }
-  
-  .list li .fa-check-square {
-    color: green;
-    position: absolute;
-    right: 50px;
-    top: 50%;
+    font-size: 18px;
     padding: 15px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    font-size: 21px;
   }
-  
-  .list li.low {
-    background-color: #9ae6ad;
+
+  .priority-select {
+    padding: 8px;
+    font-size: 14px;
   }
-  
-  .list li.medium {
-    background-color: #ffe082;
-  }
-  
-  .list li.high {
-    background-color: #ff7043;
-  }
-  
-  .list li.checked {
-    color: darkgray;
-    text-decoration: line-through;
-  }
-  
-  .list li.checked .fa-check-square {
-    color: darkgray;
-  }
-  
-  /* Dark Mode Styles */
-  [data-theme="dark"] {
-    background-color: #121212;
-    color: #f0f0f0;
-  }
-  
-  [data-theme="dark"] .form {
-    background-color: #333333;
-  }
-  
-  [data-theme="dark"] .input {
-    background-color: #444444;
-    color: #f0f0f0;
-  }
-  
-  [data-theme="dark"] .priority-select {
-    background-color: #444444;
-    color: #f0f0f0;
-  }
-  
-  [data-theme="dark"] .list li {
-    background-color: #444444;
-    border-color: #666666;
-  }
-  
-  [data-theme="dark"] .list li.low {
-    background-color: #6a9e6f;
-  }
-  
-  [data-theme="dark"] .list li.medium {
-    background-color: #b88c3b;
-  }
-  
-  [data-theme="dark"] .list li.high {
-    background-color: #d85c4f;
-  }
-  
-  [data-theme="dark"] .list li.checked {
-    color: #888888;
-  }
-  
-  [data-theme="dark"] .list li .fa-trash {
-    color: #ff7777;
-  }
-  
-  [data-theme="dark"] .list li .fa-check-square {
-    color: #66ff66;
-  }
-  
-  /* Blue Mode Styles */
-  [data-theme="blue"] {
-    background-color: #e0f7fa;
-    color: white;
-  }
-  
-  [data-theme="blue"] .form {
-    background-color: #80deea;
-  }
-  
-  [data-theme="blue"] .input {
-    color: #d3d3d3;
-  }
-  
-  [data-theme="blue"] .priority-select {
-    background-color: #80deea;
-    color: rgb(71, 68, 68);
-  }
-  
-  [data-theme="blue"] .list li {
-    background-color: #80deea;
-    border-color: #00796b;
-  }
-  
-  [data-theme="blue"] .list li.low {
-    background-color: #26c6da;
-  }
-  
-  [data-theme="blue"] .list li.medium {
-    background-color: #159aab;
-  }
-  
-  [data-theme="blue"] .list li.high {
-    background-color: #077988;
-  }
-  
-  /* Purple Mode Styles */
-  [data-theme="purple"] {
-    background-color: #f3e5f5;
-    color: white;
-  }
-  
-  [data-theme="purple"] .form {
-    background-color: #ba68c8;
-  }
-  
-  [data-theme="purple"] .input,
-  [data-theme="purple"] .priority-select {
-    background-color: #ab47bc;
-    color: white;
-  }
-  
-  [data-theme="purple"] .list li {
-    background-color: #ba68c8;
-    border-color: #6a1b9a;
-  }
-  
-  [data-theme="purple"] .list li.low {
-    background-color: #9c27b0;
-  }
-  
-  [data-theme="purple"] .list li.medium {
-    background-color: #8e24aa;
-  }
-  
-  [data-theme="purple"] .list li.high {
-    background-color: #7b1fa2;
-  }
-  
-  /* Toggle Button at Bottom Right */
-  .theme-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #ff4081;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
+
+  .list li {
     font-size: 16px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s;
+    padding: 15px;
   }
-  
-  .theme-toggle:hover {
-    background-color: #f50057;
+
+  .list li .fa-trash,
+  .list li .fa-check-square {
+    font-size: 16px;
   }
-  
-  /* Responsive Styles */
-  @media (max-width: 600px) {
-    /* Adjusting the form for smaller screens */
-    .form {
-      width: 90%;
-      top: 10%;
-    }
-  
-    /* Adjusting input size and padding */
-    .input {
-      font-size: 18px;
-      padding: 15px;
-    }
-  
-    .priority-select {
-      padding: 8px;
-      font-size: 14px;
-    }
-  
-    /* Adjusting the list item text size */
-    .list li {
-      font-size: 16px;
-      padding: 15px;
-    }
-  
-    .list li .fa-trash,
-    .list li .fa-check-square {
-      font-size: 16px;
-    }
-  
-    /* Adjusting theme toggle button for smaller screens */
-    .theme-toggle {
-      bottom: 10px;
-      right: 10px;
-      font-size: 14px;
-      padding: 8px 16px;
-    }
+
+  .theme-toggle {
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px;
+    padding: 8px 16px;
   }
-  
+}

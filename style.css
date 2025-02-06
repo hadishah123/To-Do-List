@@ -1,69 +1,102 @@
-body{
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    background-color: #C5BAFF;
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #c5baff;
+}
+.form {
+  position: absolute;
+  top: 30%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 400px;
+  background-color: #a1eebd;
+  border-radius: 10px;
+}
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 10px 10px 0 0;
+  border: none;
+  font-size: 20px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.form{
-    position: absolute;
-    top: 30%;
-    box-shadow: 0 4px 8px rgba(0,0,0,.3);
-    width: 400px;
-    background-color: #A1EEBD;
-    border-radius: 10px;
+.input::placeholder {
+  color: lightgray;
 }
 
-.input{
-    width: 100%;
-    box-sizing: border-box;
-    padding: 20px;
-    border-radius: 10px 10px 0 0;
-    border: none;
-    font-size: 20px;
-    font-family: cursive;
+.list {
+  padding: 0;
+  margin: 0;
 }
 
-.input::placeholder{
-    color: lightgray;
+.list li {
+  list-style-type: none;
+  padding: 20px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  border-top: dotted;
+  border-color: darkgray;
+  position: relative;
 }
 
-.list{
-    padding: 0;
-    margin: 0;
+.list li .fa-trash {
+  color: red;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 19px;
 }
-
-.list li{
-    list-style-type: none;
-    padding: 20px;
-    font-family: cursive;
-    border-top: dotted;
-    border-color: darkgray;
-    position: relative;
-}
-
-.list li .fa-trash{
-    color: red;
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-.list li .fa-check-square{
-    color: green;
-    position: absolute;
-    right: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
+.list li .fa-check-square {
+  color: green;
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  padding: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 21px;
 }
 
 .list li.checked {
-    color: darkgray;
-    text-decoration: line-through;
+  color: darkgray;
+  text-decoration: line-through;
 }
 
-.list li.checked .fa-check-square{
-    color: darkgray;
+.list li.checked .fa-check-square {
+  color: darkgray;
+}
+@media (max-width: 600px) {
+  .form {
+    width: 90%;
+    top: 20%;
+  }
+
+  .input {
+    font-size: 18px;
+  }
+
+  .list li .fa-trash,
+  .list li .fa-check-square {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 601px) {
+  .form {
+    width: 600px;
+    top: 30%;
+  }
+  .list {
+    font-size: 20px;
+  }
+  .list li .fa-trash,
+  .input,
+  .list li .fa-check-square {
+    font-size: 22px;
+  }
 }

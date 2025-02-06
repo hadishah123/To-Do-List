@@ -30,10 +30,19 @@ formEl.addEventListener("submit", (event) => {
   event.preventDefault(); // Prevent form submission
 
   // Call to create the new task
-  toDoList(); 
+  toDoList();
 
   // Refocus the input field to avoid losing focus
-  inputEl.focus(); 
+  inputEl.focus();
+});
+
+// Handle "Enter" key press on the input field
+inputEl.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault(); // Prevent default behavior (like form submission)
+    toDoList(); // Add the task
+    inputEl.focus(); // Refocus the input field
+  }
 });
 
 // Create and display the To-Do item
@@ -45,6 +54,8 @@ function toDoList(task) {
     newTask = task.name;
     taskPriority = task.priority;
   }
+
+  if (!newTask.trim()) return; // Don't add empty tasks
 
   const liEl = document.createElement("li");
   if (task && task.checked) {
@@ -95,10 +106,3 @@ function updateLocalStorage() {
   });
   localStorage.setItem("list", JSON.stringify(list));
 }
-formEl.addEventListener("submit", (event) => {
-  event.preventDefault(); 
-  toDoList(); 
-  setTimeout(() => {
-    inputEl.focus(); // Focus with a slight delay
-  }, 10); 
-});

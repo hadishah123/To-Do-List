@@ -27,9 +27,13 @@ themeToggleBtn.addEventListener("click", () => {
 
 // Form submission
 formEl.addEventListener("submit", (event) => {
-  event.preventDefault();
-  toDoList(); // Call the function to add the task
-  inputEl.focus(); // Keep the focus on the input field after task is added
+  event.preventDefault(); // Prevent form submission
+
+  // Call to create the new task
+  toDoList(); 
+
+  // Refocus the input field to avoid losing focus
+  inputEl.focus(); 
 });
 
 // Create and display the To-Do item
@@ -91,3 +95,10 @@ function updateLocalStorage() {
   });
   localStorage.setItem("list", JSON.stringify(list));
 }
+formEl.addEventListener("submit", (event) => {
+  event.preventDefault(); 
+  toDoList(); 
+  setTimeout(() => {
+    inputEl.focus(); // Focus with a slight delay
+  }, 10); 
+});

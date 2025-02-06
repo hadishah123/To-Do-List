@@ -28,43 +28,38 @@ themeToggleBtn.addEventListener("click", () => {
 // Form submission
 formEl.addEventListener("submit", (event) => {
   event.preventDefault(); // Prevent form submission
-
-  // Call to create the new task
-  toDoList();
-
-  // Refocus the input field to avoid losing focus
-  inputEl.focus();
+  addTask(); // Add the task
 });
 
 // Handle "Enter" key press on the input field
 inputEl.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     event.preventDefault(); // Prevent default behavior (like form submission)
-    toDoList(); // Add the task
-    inputEl.focus(); // Refocus the input field
+    addTask(); // Add the task
   }
 });
 
+// Function to add a task
+function addTask() {
+  const newTask = inputEl.value.trim();
+  const taskPriority = prioritySelectEl.value;
+
+  if (!newTask) return; // Don't add empty tasks
+
+  toDoList({ name: newTask, priority: taskPriority });
+  inputEl.value = ""; // Clear the input field
+  inputEl.focus(); // Refocus the input field
+}
+
 // Create and display the To-Do item
 function toDoList(task) {
-  let newTask = inputEl.value;
-  let taskPriority = prioritySelectEl.value;
-
-  if (task) {
-    newTask = task.name;
-    taskPriority = task.priority;
-  }
-
-  if (!newTask.trim()) return; // Don't add empty tasks
-
   const liEl = document.createElement("li");
-  if (task && task.checked) {
+  liEl.classList.add(task.priority);
+  if (task.checked) {
     liEl.classList.add("checked");
   }
-  liEl.classList.add(taskPriority);
-  liEl.innerText = newTask;
+  liEl.innerText = task.name;
   ulEl.appendChild(liEl);
-  inputEl.value = "";
 
   // Create buttons
   const checkBtnEl = document.createElement("div");

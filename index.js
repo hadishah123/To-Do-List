@@ -28,7 +28,8 @@ themeToggleBtn.addEventListener("click", () => {
 // Form submission
 formEl.addEventListener("submit", (event) => {
   event.preventDefault();
-  toDoList();
+  toDoList(); // Call the function to add the task
+  inputEl.focus(); // Keep the focus on the input field after task is added
 });
 
 // Create and display the To-Do item
